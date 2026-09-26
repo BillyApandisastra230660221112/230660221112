@@ -1,0 +1,17 @@
+graph TD
+    MobileApp["APLIKASI MOBILE<br/>Perpustakaan<br/>(Flutter)"]
+    Backend["BACKEND SI<br/>Perpustakaan<br/>(REST API)"]
+    Database["DATABASE<br/>Perpustakaan<br/><br/>• Data Buku<br/>• Data Pengguna<br/>• Data Peminjaman"]
+    
+    MobileApp -->|"HTTP Request<br/>(JSON)"| Backend
+    Backend -->|"Query /<br/>Perubahan Data"| Database
+    Database -->|"Data Hasil Query"| Backend
+    Backend -->|"HTTP Response<br/>(JSON)"| MobileApp
+    
+    classDef mobileStyle stroke:#38bdf8,fill:#f0f9ff
+    classDef backendStyle stroke:#a78bfa,fill:#f5f3ff
+    classDef dbStyle stroke:#4ade80,fill:#f0fdf4
+    
+    class MobileApp mobileStyle
+    class Backend backendStyle
+    class Database dbStyle
